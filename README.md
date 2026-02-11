@@ -1,16 +1,124 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  1 - # React + Vite                                                                                                                                                                                      │
+│  1 + # Saptaswara Gesture Music App                                                                                                                                                                      │
+│  2                                                                                                                                                                                                       │
+│  3 - This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.                                                                                                 │
+│  3 + ## Project Description                                                                                                                                                                              │
+│  4 + The Saptaswara Gesture Music App is an innovative web-based music controller that allows users to play musical notes using hand gestures. Utilizing webcam-based hand tracking via MediaPipe, the   │
+│    application detects finger movements to trigger notes and controls the overall volume based on hand proximity to the camera. This project aims to provide a unique and intuitive way to interact with │
+│    music, blending web technologies with real-time gesture recognition.                                                                                                                                  │
+│  5                                                                                                                                                                                                       │
+│  5 - Currently, two official plugins are available:                                                                                                                                                      │
+│  6 + ## Features                                                                                                                                                                                         │
+│  7 + -   **Hand Tracking:** Real-time detection of hand and finger movements using MediaPipe's HandLandmarker.                                                                                           │
+│  8 + -   **Note Playback:** Trigger musical notes by raising individual fingers.                                                                                                                         │
+│  9 + -   **Configurable Notes:** Assign specific musical notes (C3 to B5) to each of the four fingers (Index, Middle, Ring, Pinky).                                                                      │
+│ 10 + -   **Dynamic Instrument Selection:** Choose from various Tone.js instruments (Synth, Piano, Guitar, AMSynth, FMSynth, DuoSynth, MembraneSynth, PluckSynth).                                        │
+│ 11 + -   **Proximity-based Volume Control:** Adjust the master volume by moving the hand closer to or farther from the webcam.                                                                           │
+│ 12 + -   **Gradual Volume Transitions:** Smooth volume changes using Tone.js's `rampTo` method for a natural audio experience.                                                                           │
+│ 13 + -   **Dynamic Z-axis Calibration:** The volume control automatically adapts its min/max depth range based on observed hand movement, reducing the need for manual setup.                            │
+│ 14 + -   **Audio Feedback:** Status messages for hand detection and instrument loading.                                                                                                                  │
+│ 15                                                                                                                                                                                                       │
+│  7 - - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in                      │
+│    [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh                                                                                                                                    │
+│  8 - - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh                                          │
+│ ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ │
+│ 16 + ## Tech Stack                                                                                                                                                                                       │
+│ 17 + -   **Frontend:** React (JavaScript/TypeScript)                                                                                                                                                     │
+│ 18 + -   **Build Tool:** Vite 8 (Beta)                                                                                                                                                                   │
+│ 19 + -   **Gesture Recognition:** MediaPipe HandLandmarker (`@mediapipe/tasks-vision`)                                                                                                                   │
+│ 20 + -   **Audio Synthesis:** Tone.js (`tone`)                                                                                                                                                           │
+│ 21 + -   **Webcam Integration:** `react-webcam`                                                                                                                                                          │
+│ 22                                                                                                                                                                                                       │
+│ 10 - ## React Compiler                                                                                                                                                                                   │
+│ ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ │
+│ 23 + ## Setup Instructions                                                                                                                                                                               │
+│ 24                                                                                                                                                                                                       │
+│ 12 - The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).     │
+│ ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ │
+│ 25 + ### 1. Clone the repository (if applicable)                                                                                                                                                         │
+│ 26 + ```bash                                                                                                                                                                                             │
+│ 27 + # Assuming you have a git repository                                                                                                                                                                │
+│ 28 + # git clone <repository-url>                                                                                                                                                                        │
+│ 29 + # cd gesture-music-app                                                                                                                                                                              │
+│ 30 + ```                                                                                                                                                                                                 │
+│ 31                                                                                                                                                                                                       │
+│ 14 - ## Expanding the ESLint configuration                                                                                                                                                               │
+│ ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ │
+│ 32 + ### 2. Install Dependencies                                                                                                                                                                         │
+│ 33 + Navigate to the project root directory (`gesture-music-app`) and install the required npm packages:                                                                                                 │
+│ 34 + ```bash                                                                                                                                                                                             │
+│ 35 + npm install                                                                                                                                                                                         │
+│ 36 + # or                                                                                                                                                                                                │
+│ 37 + yarn install                                                                                                                                                                                        │
+│ 38 + ```                                                                                                                                                                                                 │
+│ 39                                                                                                                                                                                                       │
+│ 16 - If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS                                                                 │
+│    template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in  │
+│    your project.                                                                                                                                                                                         │
+│ ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ │
+│ 40 + ### 3. Running the Development Server                                                                                                                                                               │
+│ 41 + To start the application in development mode:                                                                                                                                                       │
+│ 42 + ```bash                                                                                                                                                                                             │
+│ 43 + npm run dev                                                                                                                                                                                         │
+│ 44 + # or                                                                                                                                                                                                │
+│ 45 + yarn dev                                                                                                                                                                                            │
+│ 46 + ```                                                                                                                                                                                                 │
+│ 47 + The application will typically open in your browser at `http://localhost:5173` (or another port if 5173 is in use).                                                                                 │
+│ 48 +                                                                                                                                                                                                     │
+│ 49 + ### 4. Build for Production                                                                                                                                                                         │
+│ 50 + To build the application for production:                                                                                                                                                            │
+│ 51 + ```bash                                                                                                                                                                                             │
+│ 52 + npm run build                                                                                                                                                                                       │
+│ 53 + # or                                                                                                                                                                                                │
+│ 54 + yarn build                                                                                                                                                                                          │
+│ 55 + ```                                                                                                                                                                                                 │
+│ 56 + The production-ready files will be generated in the `dist` directory.                                                                                                                               │
+│ 57 +                                                                                                                                                                                                     │
+│ 58 + ## Usage Guide                                                                                                                                                                                      │
+│ 59 +                                                                                                                                                                                                     │
+│ 60 + 1.  **Start the App:** Open the application in your browser. You will see a "START ENGINE" button. Click it to enable webcam access and initialize the audio context.                               │
+│ 61 + 2.  **Webcam Access:** Grant permission for the browser to access your webcam.                                                                                                                      │
+│ 62 + 3.  **Hand Tracking:** Position your dominant hand in front of the webcam. The "Status" display should change to "Tracking Active".                                                                 │
+│ 63 + 4.  **Play Notes:** Raise your individual fingers (Index, Middle, Ring, Pinky) to play the assigned notes.                                                                                          │
+│ 64 + 5.  **Volume Control (Proximity):** Move your hand closer to or farther from the camera to control the master volume.                                                                               │
+│ 65 +     *   **Closer to Camera:** Volume increases (up to 0dB).                                                                                                                                         │
+│ 66 +     *   **Farther from Camera:** Volume decreases (down to -60dB, silent).                                                                                                                          │
+│ 67 + 6.  **Instrument Selection:** Use the "Instrument" dropdown menu to choose different sound types (Synth, Piano, Guitar, etc.). Note that Piano and Guitar use `Tone.Sampler` which requires loading │
+│    samples (provided by a public CDN in this prototype).                                                                                                                                                 │
+│ 68 + 7.  **Note Assignment:** Use the "Finger X" dropdowns to change which musical note is played by each finger.                                                                                        │
+│ 69 +                                                                                                                                                                                                     │
+│ 70 + ## Configuration & Customization                                                                                                                                                                    │
+│ 71 +                                                                                                                                                                                                     │
+│ 72 + ### Volume Control Calibration                                                                                                                                                                      │
+│ 73 + The volume control uses dynamic auto-calibration for `minZ` and `maxZ` based on your hand's observed movement range. If you find the volume response not ideal, you might manually adjust these     │
+│    values:                                                                                                                                                                                               │
+│ 74 + -   **`minZ` and `maxZ`:** These values (in `src/App.jsx`) define the closest and farthest Z-coordinates MediaPipe detects for your hand. The `Raw Z:` display in the UI can help you find your     │
+│    personal range. Move your hand to the closest point where you want max volume, note the `Raw Z` value, and set it as `dynamicMinZ.current`. Do the same for the farthest point and set it as          │
+│    `dynamicMaxZ.current`.                                                                                                                                                                                │
+│ 75 + -   **`RAMP_TIME`:** Adjust this value (in `src/App.jsx`) to control how gradually the volume changes. Higher values make it smoother/laggy, lower values make it snappier/jittery.                 │
+│ 76 + -   **`curvedProximity`:** The current implementation uses `Math.pow(normalizedProximity, 2)` for a natural, exponential volume curve. You can experiment with different powers (e.g.,              │
+│    `Math.pow(normalizedProximity, 3)`) or linear mapping (`normalizedProximity`) if you prefer a different feel.                                                                                         │
+│ 77 +                                                                                                                                                                                                     │
+│ 78 + ### Instrument Samples                                                                                                                                                                              │
+│ 79 + For 'Piano' and 'Guitar' instruments, the app uses `Tone.Sampler` with placeholder samples from a public CDN (`tonejs.github.io/audio/salamander/`). For a full and realistic sound across all      │
+│    pitches, you would need to:                                                                                                                                                                           │
+│ 80 + 1.  **Acquire a comprehensive set of audio samples** for the desired instrument.                                                                                                                    │
+│ 81 + 2.  **Host these samples** (e.g., in the `public` folder of your project or on a CDN).                                                                                                              │
+│ 82 + 3.  **Update the `urls` and `baseUrl` properties** within the `Tone.PolySynth(Tone.Sampler, { voice: { ... } })` configuration for 'Piano' and 'Guitar' in `src/App.jsx` to point to your sample    │
+│    files.                                                                                                                                                                                                │
+│ 83 +                                                                                                                                                                                                     │
+│ 84 + ### Finger Detection Sensitivity                                                                                                                                                                    │
+│ 85 + -   **`tip.y < base.y - 0.1`:** This threshold in `handleHandResults` (`src/App.jsx`) determines how much a fingertip needs to be raised relative to its base to trigger a note. A smaller number   │
+│    (e.g., `-0.05`) makes it more sensitive; a larger number (e.g., `-0.2`) makes it less sensitive.                                                                                                      │
+│ 86 + -   **`DEBOUNCE_TIME_MS`:** Adjust this value (in `src/App.jsx`) to control the delay before a note is released after a finger is put down. A lower value makes it more responsive to rapid         │
+│    movements, but may introduce staccato if the hand tracking is noisy.                                                                                                                                  │
+│ 87 +                                                                                                                                                                                                     │
+│ 88 + ## Troubleshooting                                                                                                                                                                                  │
+│ 89 + -   **Blank Screen/Errors:** Check your browser's developer console (F12) for JavaScript errors. Ensure all npm dependencies are installed (`npm install`).                                         │
+│ 90 + -   **Hand Not Detected:** Ensure your webcam is working and you've granted access. Check lighting conditions.                                                                                      │
+│ 91 + -   **Volume Stuck/Not Responding:** Observe the `Raw Z:` value in the UI. Move your hand to its closest and farthest positions, and use those Z-values to manually set `dynamicMinZ` and           │
+│    `dynamicMaxZ` in `src/App.jsx` if the auto-calibration isn't adapting well enough initially.                                                                                                          │
+│ 92 + -   **No Sound:** Ensure your browser tab is active and not muted. Click the "START ENGINE" button. Check console for Tone.js audio context errors.                                                 │
+│ 93 +                                                                                                                                                                                                     │
+│ 94 + ---                                                                                                                                                                                                 │
+│ 95 + Developed by Malavika Sreesandesh, Master's student in Web Engineering at TU Chemnitz, using Gemini CLI.   
