@@ -1,7 +1,7 @@
-# Saptaswara Gesture Music App
+# Gesture Control App
 
 ## Project Description
-The Saptaswara Gesture Music App is an innovative web-based music controller that allows users to play musical notes using hand gestures. Utilizing webcam-based hand tracking via MediaPipe, the application detects finger movements to trigger notes and controls the overall volume based on hand proximity to the camera. This project aims to provide a unique and intuitive way to interact with music, blending web technologies with real-time gesture recognition.
+The Gesture Control App is an innovative web-based music controller that allows users to play musical notes using hand gestures. Utilizing webcam-based hand tracking via MediaPipe, the application detects finger movements to trigger notes and controls the overall volume based on hand proximity to the camera. This project aims to provide a unique and intuitive way to interact with music, blending web technologies with real-time gesture recognition.
 
 ## Features
 -   **Hand Tracking:** Real-time detection of hand and finger movements using MediaPipe's HandLandmarker.
@@ -57,7 +57,7 @@ The production-ready files will be generated in the `dist` directory.
 
 ## Usage Guide
 
-1.  **Start the App:** Open the application in your browser. You will see a "START ENGINE" button. Click it to enable webcam access and initialize the audio context.
+1. **Start the App:** Open the Gesture Control App in your browser. You will see a "START ENGINE" button. Click it to enable webcam access and initialize the audio context.
 2.  **Webcam Access:** Grant permission for the browser to access your webcam.
 3.  **Hand Tracking:** Position your dominant hand in front of the webcam. The "Status" display should change to "Tracking Active".
 4.  **Play Notes:** Raise your individual fingers (Index, Middle, Ring, Pinky) to play the assigned notes.
