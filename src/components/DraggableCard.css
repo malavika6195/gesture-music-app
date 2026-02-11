@@ -1,0 +1,30 @@
+/* Add styles for DraggableCard here if needed */
+.card-container {
+  width: 300px;
+  height: 200px;
+  background-color: lightgray;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden; /* Important for dragConstraints to work correctly */
+  position: relative;
+}
+
+.draggable-card {
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  position: absolute; /* To allow free movement within constraintsRef */
+}
+
+.draggable-card:active {
+  cursor: grabbing;
+}
