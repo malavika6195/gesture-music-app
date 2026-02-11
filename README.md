@@ -4,7 +4,7 @@
 The Gesture Control App is an innovative web-based music controller that allows users to play musical notes using hand gestures. Utilizing webcam-based hand tracking via MediaPipe, the application detects finger movements to trigger notes and controls the overall volume based on hand proximity to the camera. This project aims to provide a unique and intuitive way to interact with music, blending web technologies with real-time gesture recognition.
 
 ## Features
--   **Hand Tracking:** Real-time detection of hand and finger movements using MediaPipe's HandLandmarker.
+-   **Multi-threaded Hand Tracking (Web Worker):** Real-time detection of hand and finger movements using MediaPipe's HandLandmarker running efficiently on a Web Worker.
 -   **Note Playback:** Trigger musical notes by raising individual fingers.
 -   **Configurable Notes:** Assign specific musical notes (C3 to B5) to each of the four fingers (Index, Middle, Ring, Pinky).
 -   **Dynamic Instrument Selection:** Choose from various Tone.js instruments (Synth, Piano, Guitar, AMSynth, FMSynth, DuoSynth, MembraneSynth, PluckSynth).
@@ -19,6 +19,7 @@ The Gesture Control App is an innovative web-based music controller that allows 
 -   **Gesture Recognition:** MediaPipe HandLandmarker (`@mediapipe/tasks-vision`)
 -   **Audio Synthesis:** Tone.js (`tone`)
 -   **Webcam Integration:** `react-webcam`
+-   **Multi-threading:** Web Workers
 
 ## Setup Instructions
 
